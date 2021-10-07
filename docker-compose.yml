@@ -1,14 +1,13 @@
 version: '3'
 services:
   nginx:
-      # используем последний стабильный образ nginx
+      # use image nginx
       image: nginx:latest
       restart: unless-stopped
-      # маршрутизируем порты
       ports:
           - 80:80
           - 443:443
-      # монтируем директории, слева директории на основной машине, справа - куда они монтируются в контейнере
+      # mount directories
       volumes:
           - ./hosts:/etc/nginx/conf.d
           - ./logs:/var/log/nginx
